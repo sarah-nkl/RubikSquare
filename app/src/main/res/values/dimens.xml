@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="cell_dimens">56dp</dimen>
+    <dimen name="cell_margins">2dp</dimen>
+    <dimen name="cell_text_size">24sp</dimen>
+    <dimen name="player_name_text_size">18sp</dimen>
+
+    <integer name="num_rows">3</integer>
+    <integer name="num_cells">9</integer>
+    <integer name="fab_size">-1</integer>
+</resources>

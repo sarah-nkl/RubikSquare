@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.motional.rubiksquare.data.CellState" />
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="cell"
+            type="com.motional.rubiksquare.data.Cell" />
+    </data>
+
+    <CheckedTextView
+        android:layout_width="@dimen/cell_dimens"
+        android:layout_height="@dimen/cell_dimens"
+        android:gravity="center"
+        android:background="@drawable/cell_selector"
+        android:text="@{String.valueOf(cell.numToDisplay)}"
+        android:onClick="@{clickListener}"
+        android:layout_margin="@dimen/cell_margins"
+        android:textSize="@dimen/cell_text_size"
+        android:textColor="?colorOnPrimary"
+        android:checked="@{cell.state == CellState.NeigborSelected}"
+        android:checkMark="@null"
+        android:textAlignment="center"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cellSelected="@{cell.state == CellState.Selected}"
+        tools:text="1" />
+
+</layout>
+

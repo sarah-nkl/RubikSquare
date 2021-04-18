@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="cell_dimens">80dp</dimen>
+    <dimen name="cell_margins">4dp</dimen>
+    <dimen name="cell_text_size">36sp</dimen>
+    <dimen name="player_name_text_size">36sp</dimen>
+
+    <integer name="fab_size">-1</integer>
+</resources>

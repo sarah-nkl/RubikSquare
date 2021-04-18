@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.motional.rubiksquare.viewmodels.RubikSquareViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FirstFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_first_square"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:listitem="@layout/rubik_cell"
+            tools:itemCount="9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:bindList="@{viewModel.cellsFirstPlayer}"
+            app:spanCount="@integer/num_rows"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+        <TextView
+            android:id="@+id/tv_player_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/first_fragment_label"
+            android:textSize="@dimen/player_name_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_first_square"/>
+
+        <FrameLayout
+            android:id="@+id/first_touch_blocker"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/overlay"
+            android:clickable="@{viewModel.whichPlayerTurn == 2}"
+            android:visibility="@{viewModel.whichPlayerTurn == 2 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/rv_first_square"
+            app:layout_constraintEnd_toEndOf="@id/rv_first_square"
+            app:layout_constraintStart_toStartOf="@id/rv_first_square"
+            app:layout_constraintBottom_toBottomOf="@id/rv_first_square"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
