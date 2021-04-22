@@ -60,14 +60,8 @@ class RubikSquareViewModel : ViewModel() {
     }
 
     private fun setStateOfNeighbor(pos: NeighborPosition, cells: List<Cell>, currentCell: Cell) {
-        val addition = when(pos) {
-            NeighborPosition.Top -> -3
-            NeighborPosition.Bottom -> 3
-            NeighborPosition.Left -> -1
-            NeighborPosition.Right -> 1
-        }
         if (rubikHelper.checkNeighborValid(currentCell, pos)) {
-            val neighborCell = cells[(currentCell.pos + addition)]
+            val neighborCell = cells[(currentCell.pos + pos.stepsFromCell)]
             neighborCell.numToDisplay = rubikHelper.incrementNumToDisplay((neighborCell.numToDisplay))
             neighborCell.state = CellState.NeigborSelected
         }

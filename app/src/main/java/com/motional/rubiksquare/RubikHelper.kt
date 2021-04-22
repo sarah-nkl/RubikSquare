@@ -9,4 +9,9 @@ interface RubikHelper {
     fun generateRandomCells(): List<Cell>
 }
 
-enum class NeighborPosition { Top, Left, Right, Bottom }
+enum class NeighborPosition(val stepsFromCell: Int) {
+    Top(-3),
+    Left(-1),
+    Right(1),
+    Bottom(3)
+}
